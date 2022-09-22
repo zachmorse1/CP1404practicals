@@ -1,3 +1,7 @@
+"""
+CP1404/CP5632 - Practical
+Password stars
+"""
 MINIMUM_LENGTH = 5
 
 
