@@ -1,5 +1,6 @@
 MINIMUM_LENGTH = 5
 
+
 def main():
     """Main program."""
     password = get_password()
