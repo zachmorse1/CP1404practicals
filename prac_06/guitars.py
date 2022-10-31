@@ -25,6 +25,7 @@ def main():
 
 def display_guitars(guitars):
     """Displays guitars."""
+    guitars.sort()
     if guitars:
         print("\n... snip ...\n")
         print("These are my guitars:")
