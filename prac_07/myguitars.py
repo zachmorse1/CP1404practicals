@@ -29,6 +29,7 @@ def save_file(contents):
 
 
 def add_guitars(guitars):
+    """Add guitar to list of guitars."""
     name = input("Name: ")
     while name != "":
         year = int(input("Year: "))
@@ -40,6 +41,7 @@ def add_guitars(guitars):
 
 
 def display_guitars(guitars):
+    """Display guitars in sorted order by year."""
     guitars.sort()
     for guitar in guitars:
         print(guitar)
