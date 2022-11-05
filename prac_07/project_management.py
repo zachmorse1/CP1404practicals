@@ -18,11 +18,11 @@ def main():
     menu_choice = input(">>> ").lower()
     while menu_choice != "q":
         if menu_choice == "l":
-            # filename = get_valid_input("Filename: ", "Filename cannot be empty")
-            load_file(projects, "projects.txt")
+            filename = get_valid_input("Filename: ", "Filename cannot be empty")
+            load_file(projects, filename)
         elif menu_choice == "s":
-            # filename = get_valid_input("Filename: ", "Filename cannot be empty")
-            save_file(projects, "projects.txt")
+            filename = get_valid_input("Filename: ", "Filename cannot be empty")
+            save_file(projects, filename)
         elif menu_choice == "d":
             display_projects(projects)
         elif menu_choice == "f":
@@ -61,7 +61,7 @@ def load_file(projects, filename):
 def update_projects(projects):
     for index, project in enumerate(projects):
         print(f"{index} {project}")
-    index = get_valid_number("Project choice: ", len(projects))
+    index = get_valid_number("Project choice: ", len(projects) - 1)
     print(projects[index])
     new_percentage = get_valid_number("New Percentage (0-100): ", 100)
     new_priority = get_valid_number("New Priority(0-9): ", 9)
@@ -80,7 +80,7 @@ def get_valid_number(prompt, maximum_value):
             while number < 0 or number > maximum_value:
                 if number < 0:
                     print("Number must be >= 0")
-                elif number > maximum_value:
+                elif number >= maximum_value:
                     print("Number out of range")
                 number = int(input(prompt))
             is_finished = True
@@ -119,7 +119,7 @@ def display_projects(projects):
     print("Incomplete projects: ")
     for project in incomplete_projects:
         print(f"\t{project}")
-    print("complete projects: ")
+    print("Complete projects: ")
     for project in completed_projects:
         print(f"\t{project}")
 
