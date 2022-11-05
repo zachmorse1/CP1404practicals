@@ -24,11 +24,11 @@ def main():
         elif menu_choice == "d":
             display_projects(projects)
         elif menu_choice == "f":
-            filter_projects()
+            filter_projects(projects)
         elif menu_choice == "a":
-            add_new_project()
+            add_new_project(projects)
         elif menu_choice == "u":
-            update_projects()
+            update_projects(projects)
         else:
             print("Invalid menu choice")
         menu_choice = input(">>> ").lower
@@ -61,8 +61,9 @@ def add_new_project():
     pass
 
 
-def filter_projects():
+def filter_projects(projects):
     get_valid_input("Show projects that start after date (dd/mm/yy): ")
+    print()
 
 
 def display_projects(projects):
