@@ -1,10 +1,12 @@
 """
 CP1404 - Prac 7
-Estimate - 30 minutes
-Actual time taken - 35 minutes
+Estimate - 40 minutes
+Actual time taken - 120 minutes
 """
 from prac_07.project import ProjectManagement
 import datetime
+import math
+from operator import itemgetter
 
 MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- " \
        "(A)dd new project\n- (U)pdate project\n- (Q)uit"
@@ -20,7 +22,7 @@ def main():
             load_file(projects, "projects.txt")
         elif menu_choice == "s":
             # filename = get_valid_input("Filename: ", "Filename cannot be empty")
-            save_projects(projects, "projects.txt")
+            save_file(projects, "projects.txt")
         elif menu_choice == "d":
             display_projects(projects)
         elif menu_choice == "f":
@@ -88,30 +90,48 @@ def get_valid_number(prompt, maximum_value):
 
 
 def add_new_project(projects):
-    pass
+    print("Let's add a new project")
+    name = get_valid_input("Name: ", "Name cannot be blank.")
+    start_date = get_valid_input("Start date (dd/mm/yy): ", "Date cannot be blank.")
+    priority = get_valid_input("Priority: ", "Priority cannot be blank.")
+    cost_estimate = get_valid_number("Cost estimate:", math.inf)
+    percent_completed = get_valid_number("Percent complete: ", 100)
+    new_project = ProjectManagement(name, start_date, int(priority), float(cost_estimate), int(percent_completed))
+    projects.append(new_project)
+    print(f"{name} project added.")
 
 
 def filter_projects(projects):
-    # get_valid_input("Show projects that start after date (dd/mm/yy): ")
-    date_string = "20/7/2022"
+    date_string = get_valid_input("Show projects that start after date (dd/mm/yyyy): ", "Invalid date")
     date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
-    projects.sort()
     for project in projects:
-        print(project)
+        projects = sorted(projects, key=lambda x: datetime.datetime.strptime(f"{project.start_date}", "%d/%m/%Y"),
+                          reverse=False)
+        if datetime.datetime.strptime(project.start_date, "%d/%m/%Y").date() > date:
+            print(project)
 
 
 def display_projects(projects):
     """Display the projects sorted by priority and completion status"""
     projects.sort()
-    for project in projects:
-        print(project)
+    completed_projects = [project for project in projects if project.is_completed()]
+    incomplete_projects = [project for project in projects if not project.is_completed()]
+    print("Incomplete projects: ")
+    for project in incomplete_projects:
+        print(f"\t{project}")
+    print("complete projects: ")
+    for project in completed_projects:
+        print(f"\t{project}")
 
 
-def save_projects(contents, filename):
+def save_file(contents, filename):
     """Saves content to a file passed to it"""
     with open(filename, "w", encoding="utf8") as out_file:
+        print("Name	Start Date\tPriority\tCost Estimate\tCompletion Percentage", file=out_file)
         for content in contents:
-            print(f"{content}", file=out_file)
+            print(f"{content.name}\t{content.start_date}\t{content.priority}\t{content.cost_estimate}"
+                  f"\t{content.percentage_completed}", file=out_file)
+        print(f"Projects saved to {filename}")
 
 
 main()
