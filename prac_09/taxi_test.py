@@ -1,7 +1,10 @@
+"""CP1404/CP5632 Practical - taxi test"""
+
 from prac_09.taxi import Taxi
 
 
 def main():
+    """Taxi test"""
     my_taxi = Taxi("Prius 1", 100)
     print(my_taxi)
     my_taxi.drive(40)
