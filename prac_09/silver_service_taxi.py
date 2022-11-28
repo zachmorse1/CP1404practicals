@@ -1,8 +1,11 @@
+"""CP1404/CP5632 Practical - Silver service taxi class"""
+
+
 from prac_09.taxi import Taxi
 
 
 class SilverServiceTaxi(Taxi):
-    """Repesent a Silver Service Taxi"""
+    """Repesent a Sil Service Taxi"""ver
     flagfall = 4.50
 
     def __init__(self, fanciness: float, **kwargs):

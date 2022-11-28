@@ -1,3 +1,5 @@
+"""CP1404/CP5632 Practical - Taxi simulator class"""
+
 from prac_09.silver_service_taxi import SilverServiceTaxi
 from prac_09.taxi import Taxi
 
@@ -5,6 +7,7 @@ MENU = "q)uit, c)hoose taxi, d)rive"
 
 
 def main():
+    """Taxi simulator test"""
     taxis = [Taxi(name="Prius", fuel=100), SilverServiceTaxi(name="Limo", fuel=100, fanciness=2),
              SilverServiceTaxi(name="Hummer", fuel=200, fanciness=4)]
     current_taxi = None
@@ -43,6 +46,7 @@ def main():
 
 
 def display_taxis(taxis):
+    """Display the taxis in taxi list"""
     for i, taxi in enumerate(taxis):
         print(f"{i} - {taxi}")
 
