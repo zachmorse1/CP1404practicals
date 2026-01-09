@@ -19,7 +19,7 @@ These practicals contain small Python programs, exercises, and workflow practice
 - Basic GUI development (Kivy in some practicals)  
 - Testing and API basics
 
-Many practicals contain code that you wrote to solve the requirements, including applied examples from coursework and problem-solving exercises. :contentReference[oaicite:0]{index=0}
+Many practicals contain code that you wrote to solve the requirements, including applied examples from coursework and problem-solving exercises.
 
 ---
 
@@ -44,7 +44,7 @@ Working through these practicals helped me develop:
 - Code organisation and readability skills  
 - Early exposure to classes, testing, and simple GUIs
 
-These foundational skills directly support higher-level projects and real-world code I’ve built since then. :contentReference[oaicite:1]{index=1}
+These foundational skills directly support higher-level projects and real-world code I’ve built since then.
 
 ---
 
