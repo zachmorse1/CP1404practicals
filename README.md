@@ -23,6 +23,20 @@ Many practicals contain code that you wrote to solve the requirements, including
 
 ---
 
+## Screenshots
+
+### Kivy Squaring Exercise
+<img src="screenshots/square.png" width="600"/>
+
+### Kivy Greeting Exercise
+<img src="screenshots/greet.png" width="600"/>
+
+### Project Managment Exercise
+<img src="screenshots/project.png" width="600"/>
+
+
+---
+
 ## 📂 Repository Structure
 
 Each folder corresponds to an individual practical assignment:
