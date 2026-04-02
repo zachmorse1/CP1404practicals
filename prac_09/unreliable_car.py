@@ -1,3 +1,5 @@
+""""CP1404/CP5632 Practical - Unreliable car class"""
+
 from prac_09.car import Car
 from random import randint
 
@@ -5,6 +7,7 @@ from random import randint
 class UnreliableCar(Car):
     """Represent an unreliable car object"""
     def __init__(self, reliability: float, **kwargs):
+        """Initializes an unreliable car"""
         super().__init__(**kwargs)
         self.reliability = reliability
 
